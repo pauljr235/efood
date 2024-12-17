@@ -9,7 +9,7 @@ const Header = () => (
     <Logo src={logo} alt="Logo efood" />
     <nav>
       <LinkH>
-        <RouterLink to="/home">Restaurantes</RouterLink>
+        <RouterLink to="/">Restaurantes</RouterLink>
       </LinkH>
     </nav>
     <Carrinho>0 produto(s) no carrinho</Carrinho>

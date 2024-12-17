@@ -1,5 +1,5 @@
-import logo from '../../../assets/images/logo.png'
-import socialLinks from '../../../assets/images/redes sociais.png'
+import logo from '../../assets/images/logo.png'
+import socialLinks from '../../assets/images/redes sociais.png'
 import { Container, LogoFotter, SocialMedia, DescricaoFoot } from './styles'
 
 const Footer = () => (
