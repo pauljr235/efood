@@ -16,7 +16,6 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalCss />
-
       <Rotas />
       <Footer />
     </BrowserRouter>
