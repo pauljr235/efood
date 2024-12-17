@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 
 const Rotas = () => (
   <Routes>
-    <Route path="/home" element={<Home />} />
+    <Route path="/" element={<Home />} />
     <Route path="/perfil" element={<Perfil />} />
   </Routes>
 )
