@@ -11,13 +11,13 @@ export const Imagem = styled.div`
 
 export const Logo = styled.img`
   position: absolute;
-  top: 20px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   padding-top: 40px;
 `
 
-export const Titulo = styled.h2`
+export const Titulo = styled.h1`
   position: absolute;
   top: 236px;
   left: 50%;
