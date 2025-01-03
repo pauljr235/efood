@@ -1,6 +1,5 @@
 import pizza from '../../../assets/images/pizza.png'
 import zoom from '../../../assets/images/mais-zoom 1.png'
-
 import {
   Cartao,
   TituloCartao,
@@ -10,7 +9,7 @@ import {
 } from './styles'
 import { useState } from 'react'
 
-export type Menu = {
+type Menu = {
   id: number
   name: string
   description: string
@@ -19,6 +18,12 @@ export type Menu = {
 }
 
 const Produtos = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const openModal = () => {
+    setModalIsOpen(true)
+  }
+
   return (
     <>
       <Cartao>
@@ -33,7 +38,9 @@ const Produtos = () => {
           recusandae vel vero nobis corrupti minus, itaque libero iusto.
           Quaerat, ipsa aliquid?
         </DescricaoCartao>
-        <BotaoCartao type="button">Adicionar ao carrinho</BotaoCartao>
+        <BotaoCartao type="button" onClick={openModal}>
+          Adicionar ao carrinho
+        </BotaoCartao>
       </Cartao>
     </>
   )
