@@ -1,10 +1,30 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 
+export const Action = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 10%;
+  height: 10%;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 30%;
+  opacity: 0;
+`
+
 export const Cartao = styled.div`
   background-color: ${cores.pink};
   padding: 8px 8px;
   text-align: center;
+  position: relative;
+
+  &:hover {
+    ${Action} {
+      opacity: 1;
+      transition: opacity 0.7s ease;
+    }
+  }
 `
 
 export const TituloCartao = styled.h3`
