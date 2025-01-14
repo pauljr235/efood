@@ -1,36 +1,52 @@
-import { useNavigate } from 'react-router-dom' // Importe o hook useNavigate
-import pasta from '../../assets/images/massa.png'
-import estrela from '../../assets/images/estrela.png'
-import { TagContainer, Titulo, Descricao, Botao, Card, Rating } from './styles'
+import { Link } from 'react-router-dom'
+import estrela from '../../assets/images/star.png'
 
-const Products = () => {
-  const navigate = useNavigate() // Inicialize o hook
+import { BotaoContainer } from '../Button/styles'
+import Tag from '../Tag'
 
-  const handleClick = () => {
-    navigate('/perfil') // Defina a navegação para a página de perfil
-  }
+import {
+  Card,
+  Descricao,
+  HeaderCard,
+  Infos,
+  Rating,
+  TituloCard
+} from './styles'
 
-  return (
-    <Card className="container">
-      <img src={pasta} alt="Massa" />
-      <Titulo>
-        <h3>La Dolce Vita Trattoria</h3>
-        <Rating>4.5</Rating>
-        <img src={estrela} alt="Estrela" />
-      </Titulo>
-      <TagContainer>italiana</TagContainer>
-
-      <Descricao>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ea
-        dignissimos esse? Aliquid veniam vel rerum assumenda nam a soluta quos
-        quis, ea pariatur, quo cum totam quisquam dignissimos cupiditate.
-      </Descricao>
-      <Botao type="button" onClick={handleClick}>
-        Saiba mais
-      </Botao>
-      {/* Atribua a função handleClick ao onClick */}
-    </Card>
-  )
+type Props = {
+  image: string
+  title: string
+  rating: string
+  description: string
+  infos: string[]
+  to?: string
 }
 
-export default Products
+const Product = ({ image, title, rating, description, infos, to }: Props) => (
+  <>
+    <Card className="container">
+      <img src={image} />
+      <Infos>
+        {infos.map((info) => (
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Infos>
+      <HeaderCard>
+        <TituloCard>{title}</TituloCard>
+        <Rating>
+          <h3>
+            {rating} <img src={estrela} alt="Estrela" />
+          </h3>
+        </Rating>
+      </HeaderCard>
+      <Descricao>{description}</Descricao>
+      <Link to="/perfil">
+        <BotaoContainer type="button" title="Saiba mais">
+          Saiba mais
+        </BotaoContainer>
+      </Link>
+    </Card>
+  </>
+)
+
+export default Product

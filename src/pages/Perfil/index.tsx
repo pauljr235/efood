@@ -1,50 +1,69 @@
-import { useEffect, useState } from 'react'
-import Header from './Header'
-import Hero2 from './Hero2'
+import ProductList from '../../components/ProductList'
+import Restaurant from '../../models/Restaurant'
 
-import ListaProdutos from './ListaProdutos'
+import pizza from '../../assets/images/pizza.png'
 
-type MenuItem = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
+const restaurantes: Restaurant[] = [
+  {
+    id: 1,
+    image: pizza,
+    title: 'Hioki Sushi ',
+    rating: '4.9',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    infos: ['Destaque da semana', 'Japonesa']
+  },
+  {
+    id: 2,
+    image: pizza,
+    title: 'La Dolce Vita Trattoria ',
+    rating: '4.6',
+    description:
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
+    infos: ['Italiana']
+  },
+  {
+    id: 3,
+    image: pizza,
+    title: 'La Dolce Vita Trattoria ',
+    rating: '4.6',
+    description:
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
+    infos: ['Italiana']
+  },
+  {
+    id: 4,
+    image: pizza,
+    title: 'La Dolce Vita Trattoria ',
+    rating: '4.6',
+    description:
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
+    infos: ['Italiana']
+  },
+  {
+    id: 5,
+    image: pizza,
+    title: 'La Dolce Vita Trattoria ',
+    rating: '4.6',
+    description:
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
+    infos: ['Italiana']
+  },
+  {
+    id: 6,
+    image: pizza,
+    title: 'La Dolce Vita Trattoria ',
+    rating: '4.6',
+    description:
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
+    infos: ['Italiana']
+  }
+]
 
-export type Menu = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: MenuItem[]
-}
-
-const Perfil = () => {
-  const [menus, setMenus] = useState<Menu[]>([]) // State to hold menu data
-  const [restaurants, setRestaurants] = useState([]) // State to hold restaurant data
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/perfil')
-      .then((res) => res.json())
-      .then((res) => setMenus(res))
-
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [])
-
-  return (
-    <>
-      <Header />
-      <Hero2 />
-      <ListaProdutos />
-    </>
-  )
-}
+const Perfil = () => (
+  <>
+    <ProductList restaurants={restaurantes} title="Perfil" />
+  </>
+)
 
 export default Perfil
