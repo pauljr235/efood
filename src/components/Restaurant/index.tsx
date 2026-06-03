@@ -1,25 +1,34 @@
-import sushi from "../../assets/images/sushi.png";
+
 import estrela from "../../assets/images/estrela.png";
 import Button from "../Button";
-import { Card, CardInfo, Description, Imagem, Ratings, Title } from "./styles";
+import { Card, CardInfo, Description, Imagem, Infos, Ratings, Title } from "./styles";
+import Tag from "../Tag";
 
-const Restaurant = () => (
+type Props = {
+  image: string;
+  title: string;
+  rating: string;
+  description: string;
+  infos: string[];
+};
+
+const Restaurant = ({ image, title, rating, description, infos }: Props) => (
   <Card className="container">
-    <Imagem src={sushi} alt="Foto de sushi" />
+    <Imagem src={image} alt="Foto de sushi" />
+    <Infos>
+      {infos.map((info) => (
+        <Tag key={info}>{info}</Tag>
+      ))}
+    </Infos>
     <CardInfo>
       <div>
-        <Title>Nome do restaurante</Title>
+        <Title>{title}</Title>
         <Ratings>
-          <p>4.9</p>
+          <p>{rating}</p>
           <img src={estrela} alt="Estrela" />
         </Ratings>
       </div>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vitae
-        delectus possimus at magnam voluptate adipisci ad doloribus quod harum
-        vero illo, dicta commodi, asperiores voluptatum error consectetur maxime
-        dolores!
-      </Description>
+      <Description>{description}</Description>
       <Button to="/perfil" type="link" title={"Clique aqui"}>
         Saiba mais
       </Button>
