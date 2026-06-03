@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeaderContainer = styled.div`
   padding: 45px 0;
@@ -15,6 +15,6 @@ export const Title = styled.h2`
   font-size: 36px;
   font-weight: 900;
   font-family: 'Roboto', sans-serif;
-  color: ${cores.pink};
+  color: ${colors.pink};
   text-align: center;
 `
