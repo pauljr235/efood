@@ -1,53 +1,32 @@
 import Restaurant from "../Restaurant";
 import { Container, List } from "./styles";
 
-import sushi from "../../assets/images/sushi.png";
+export type RestaurantItem = {
+  id: number;
+  image: string;
+  title: string;
+  rating: string;
+  description: string;
+  infos: string[];
+};
 
-const RestaurantsList = () => (
+export type Props = {
+  restaurants: RestaurantItem[];
+};
+
+const RestaurantsList = ({ restaurants }: Props) => (
   <Container>
     <List>
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
-      <Restaurant
-        image={sushi}
-        title="Hioki Sushi "
-        rating="4.9"
-        description="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        infos={["Destaque da Semana", "Japonesa"]}
-      />
+      {restaurants.map((restaurant) => (
+        <Restaurant
+          key={restaurant.id}
+          image={restaurant.image}
+          title={restaurant.title}
+          rating={restaurant.rating}
+          description={restaurant.description}
+          infos={restaurant.infos}
+        />
+      ))}
     </List>
   </Container>
 );
