@@ -4,6 +4,7 @@ export const colors = {
   cream: "#FFEBD9",
   pink: "#E66767",
   white: "#FFFFFF",
+  gray: '#FFF8F2'
 };
 
 export const GlobalCss = createGlobalStyle`
@@ -16,7 +17,7 @@ export const GlobalCss = createGlobalStyle`
 }
 
 body{
-    background-color: ${colors.cream};
+    background-color: ${colors.gray};
 }
 
 .container{

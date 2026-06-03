@@ -9,6 +9,8 @@ export const ButtonContainer = styled.div`
   padding: 4px 6px;
   font-size: 14px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 `;
 
 export const ButtonLink = styled(Link)`
@@ -17,4 +19,6 @@ export const ButtonLink = styled(Link)`
   padding: 4px 6px;
   font-size: 14px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 `;
