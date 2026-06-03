@@ -1,12 +1,13 @@
-import { GlobalCss } from "./styles"
+import Header from "./components/Header";
+import { GlobalCss } from "./styles";
 
 function App() {
-
   return (
     <>
-      <GlobalCss/>
+      <GlobalCss />
+      <Header />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
