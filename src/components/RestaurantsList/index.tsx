@@ -1,3 +1,4 @@
+import type { Menu } from "../DishesList";
 import Restaurant from "../Restaurant";
 import { Container, List } from "./styles";
 
@@ -9,6 +10,7 @@ export type RestaurantItem = {
   descricao: string;
   destacado: string;
   tipo: string;
+  cardapio: Menu[]
 };
 
 export type Props = {

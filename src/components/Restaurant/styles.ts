@@ -19,6 +19,7 @@ export const Card = styled.div`
 export const Imagem = styled.img`
   width: 100%;
   display: block;
+  height: 217px;
 `;
 export const CardInfo = styled.div`
   padding: 8px;

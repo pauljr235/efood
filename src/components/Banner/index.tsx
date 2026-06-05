@@ -1,16 +1,16 @@
 import { BannerContainer, Name, Title } from './styles'
 
 type Props = {
-  image: string
-  type: string
-  name: string
+  capa: string
+  tipo: string
+  titulo: string
 }
 
-const Banner = ({ type, name, image }: Props) => (
-  <BannerContainer style={{ backgroundImage: `url(${image})` }}>
+const Banner = ({ tipo, titulo, capa }: Props) => (
+  <BannerContainer style={{ backgroundImage: `url(${capa})` }}>
     <div className="container">
-      <Title>{type}</Title>
-      <Name>{name}</Name>
+      <Title>{tipo}</Title>
+      <Name>{titulo}</Name>
     </div>
   </BannerContainer>
 )
