@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles";
+import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -36,4 +36,4 @@ export const HeaderContainer = styled.header`
     font-weight: 900;
     color: ${colors.pink};
   }
-`;
+`

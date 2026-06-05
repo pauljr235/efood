@@ -11,6 +11,7 @@ export const ButtonContainer = styled.div`
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
+  text-align: center;
 `;
 
 export const ButtonLink = styled(Link)`
