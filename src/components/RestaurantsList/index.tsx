@@ -3,32 +3,46 @@ import { Container, List } from "./styles";
 
 export type RestaurantItem = {
   id: number;
-  image: string;
-  title: string;
-  rating: string;
-  description: string;
-  infos: string[];
+  capa: string;
+  titulo: string;
+  avaliacao: string;
+  descricao: string;
+  destacado: string;
+  tipo: string;
 };
 
 export type Props = {
   restaurants: RestaurantItem[];
 };
 
-const RestaurantsList = ({ restaurants }: Props) => (
-  <Container>
-    <List>
-      {restaurants.map((restaurant) => (
-        <Restaurant
-          key={restaurant.id}
-          image={restaurant.image}
-          title={restaurant.title}
-          rating={restaurant.rating}
-          description={restaurant.description}
-          infos={restaurant.infos}
-        />
-      ))}
-    </List>
-  </Container>
-);
+const RestaurantsList = ({ restaurants }: Props) => {
+  const getTag = (restaurante: RestaurantItem) => {
+    const tag = [];
+    if (restaurante.destacado) {
+      tag.push("Destaque da semana");
+    }
+    if (restaurante.tipo) {
+      tag.push(restaurante.tipo);
+    }
+    return tag;
+  };
 
+  return (
+    <Container>
+      <List>
+        {restaurants.map((restaurant) => (
+          <Restaurant
+            key={restaurant.id}
+            image={restaurant.capa}
+            title={restaurant.titulo}
+            rating={restaurant.avaliacao}
+            description={restaurant.descricao}
+            infos={getTag(restaurant)}
+            id={restaurant.id}
+          />
+        ))}
+      </List>
+    </Container>
+  );
+};
 export default RestaurantsList;

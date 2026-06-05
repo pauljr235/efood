@@ -4,14 +4,15 @@ import RestaurantsList, {
 } from "../../components/RestaurantsList";
 
 import sushi from "../../assets/images/sushi.png";
+import { useEffect, useState } from "react";
 
 const restaurantes: RestaurantItem[] = [
   {
     id: 1,
-    image: sushi,
-    title: "Hioki Sushi ",
-    rating: "4.9",
-    description:
+    capa: sushi,
+    titulo: "Hioki Sushi ",
+    avaliacao: "4.9",
+    descricao:
       "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!",
     infos: ["Destaque da Semana", "Japonesa"],
   },
@@ -62,11 +63,22 @@ const restaurantes: RestaurantItem[] = [
   },
 ];
 
-const Home = () => (
-  <div>
-    <Header />
-    <RestaurantsList restaurants={restaurantes} />
-  </div>
-);
+const Home = () => {
+  const [restaurantes, setRestaurantes] = useState<RestaurantItem[]>([]);
 
+  useEffect(() => {
+    fetch("https://api-ebac.vercel.app/api/efood/restaurantes")
+      .then((res) => res.json())
+      .then((res) => {
+        setRestaurantes(res);
+      });
+  });
+
+  return (
+    <div>
+      <Header />
+      <RestaurantsList restaurants={restaurantes} />
+    </div>
+  );
+};
 export default Home;

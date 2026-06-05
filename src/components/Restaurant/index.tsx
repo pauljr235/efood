@@ -5,6 +5,7 @@ import { Card, CardInfo, Description, Imagem, Infos, Ratings, Title } from "./st
 import Tag from "../Tag";
 
 type Props = {
+  id: number
   image: string;
   title: string;
   rating: string;
@@ -12,7 +13,7 @@ type Props = {
   infos: string[];
 };
 
-const Restaurant = ({ image, title, rating, description, infos }: Props) => (
+const Restaurant = ({ image, title, rating, description, infos, id }: Props) => (
   <Card className="container">
     <Imagem src={image} alt="Foto de sushi" />
     <Infos>
@@ -29,7 +30,7 @@ const Restaurant = ({ image, title, rating, description, infos }: Props) => (
         </Ratings>
       </div>
       <Description>{description}</Description>
-      <Button to="/perfil" type="link" title={"Clique aqui"}>
+      <Button to={`/perfil/${id}`} type="link" title={"Clique aqui"}>
         Saiba mais
       </Button>
     </CardInfo>

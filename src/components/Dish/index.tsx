@@ -1,6 +1,5 @@
 import Button from "../Button";
 
-import pizza from "../../assets/images/pizza.png";
 import { Card, Description, Title } from "./styles";
 
 type Props = {
