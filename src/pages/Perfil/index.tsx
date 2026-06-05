@@ -6,6 +6,7 @@ import Dish from "../../components/Dish";
 import DishesList, { type Menu } from "../../components/DishesList";
 
 import pizza from "../../assets/images/pizza.png";
+import { useParams } from "react-router-dom";
 
 const menu: Menu[] = [
   {
@@ -52,11 +53,14 @@ const menu: Menu[] = [
   },
 ];
 
-const Perfil = () => (
-  <div>
-    <HeaderPerfil />
-    <DishesList cardapio={menu} />
-  </div>
-);
+const Perfil = () => {
+  const { id } = useParams();
 
+  return (
+    <div>
+      <HeaderPerfil />
+      <DishesList cardapio={menu} />
+    </div>
+  );
+};
 export default Perfil;
