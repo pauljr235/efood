@@ -9,7 +9,6 @@ export const List = styled.ul`
   padding-bottom: 120px;
   padding-top: 60px;
 `;
-
 export const Modal = styled.div`
   padding: 32px;
   background-color: ${colors.pink};
@@ -19,7 +18,6 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
   display: none;
-
 
   &.visible {
     display: flex;
@@ -36,7 +34,6 @@ export const Modal = styled.div`
     top: 0;
     padding: 8px;
     cursor: pointer;
-
     img {
       height: 16px;
       width: 16px;
@@ -61,6 +58,7 @@ export const ModalContent = styled.div`
 `;
 export const ModalImg = styled.img`
   margin-right: 16px;
+  display: block;
   width: 100%;
 `;
 

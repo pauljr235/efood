@@ -7,14 +7,15 @@ type Props = {
   image: string;
   title: string;
   description: string;
+  onClick: () => void
 };
 
-const Dish = ({ image, title, description }: Props) => (
+const Dish = ({ image, title, description, onClick}: Props) => (
   <Card>
     <img src={image} alt={title} />
     <Title>{title}</Title>
     <Description>{description}</Description>
-    <Button type="button" title={"Clique para adicionar"}>
+    <Button onClick={onClick} type="button" title={"Clique para adicionar"}>
       Adicionar ao carrinho
     </Button>
   </Card>
