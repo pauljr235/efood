@@ -67,7 +67,7 @@ const DishesList = ({ cardapio }: Props) => {
                 <br />
                 <p>Serve: de {itemIsOpen.porcao}</p>
                 <ButtonContainer title="Clique aqui">
-                  Adicionar ao carrinho R$ {itemIsOpen.preco}
+                  Adicionar ao carrinho R$ {itemIsOpen.preco.toFixed(2)}
                 </ButtonContainer>
               </div>
             </ModalContent>
