@@ -1,28 +1,40 @@
 import Header from "../../components/Header";
-import RestaurantsList, {
-  type RestaurantItem,
-} from "../../components/RestaurantsList";
+import { useGetFeaturedRestaurantsQuery } from "../../services/api";
+import RestaurantsList from "../../components/RestaurantsList";
 
-import { useEffect, useState } from "react";
+export type CardapioItem = {
+  foto: string;
+  preco: number;
+  id: number;
+  nome: string;
+  descricao: string;
+  porcao: string;
+};
 
-
+export type Restaurant = {
+  id: number;
+  titulo: string;
+  destacado: boolean;
+  tipo: string;
+  avaliacao: number;
+  descricao: string;
+  capa: string;
+  cardapio: CardapioItem[];
+};
 
 const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<RestaurantItem[]>([]);
+  const { data: restaurantes, isLoading } = useGetFeaturedRestaurantsQuery();
 
-  useEffect(() => {
-    fetch("https://api-ebac.vercel.app/api/efood/restaurantes")
-      .then((res) => res.json())
-      .then((res) => {
-        setRestaurantes(res);
-      });
-  });
+  if (isLoading) {
+    return <p>Carregando . . .</p>;
+  }
 
   return (
-    <div>
+    <>
       <Header />
-      <RestaurantsList restaurants={restaurantes} />
-    </div>
+      <RestaurantsList restaurants={restaurantes || []} />
+    </>
   );
 };
+
 export default Home;

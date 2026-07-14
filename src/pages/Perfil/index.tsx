@@ -1,26 +1,21 @@
-import Banner from "../../components/Banner";
-import HeaderPerfil from "../../components/HeaderPerfil";
+import { useParams } from 'react-router-dom'
+import Banner from '../../components/Banner'
+import DishesList from '../../components/DishesList'
+import HeaderPerfil from '../../components/HeaderPerfil'
 
-import DishesList, { type Menu } from "../../components/DishesList";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import type { RestaurantItem } from "../../components/RestaurantsList";
+import { useGetFeaturedMenuQuery } from '../../services/api'
 
 const Perfil = () => {
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const [menu, setMenu] = useState<RestaurantItem | null>(null);
+  const { data: menu, isLoading } = useGetFeaturedMenuQuery(id || '')
 
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setMenu(res);
-      });
-  });
+  if (isLoading) {
+    return <p> Carregando... </p>
+  }
 
   if (!menu) {
-    return <p>Carregando...</p>;
+    return <p>PÁGINA NÃO ENCONTRADA!</p>
   }
 
   return (

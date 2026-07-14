@@ -7,14 +7,15 @@ import {
 } from "./styles";
 
 import Dish from "../Dish";
-import Button from "../Button";
-
-import pizza from "../../assets/images/pizza.png";
 import botaoFechar from "../../assets/images/fechar.png";
 import { useState } from "react";
 import { ButtonContainer } from "../Button/styles";
 
 export type Menu = {
+  cardapio: Menu[];
+  tipo: string;
+  titulo: string;
+  capa: string;
   id: number;
   foto: string;
   nome: string;
