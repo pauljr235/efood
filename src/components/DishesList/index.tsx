@@ -11,6 +11,9 @@ import botaoFechar from "../../assets/images/fechar.png";
 import { useState } from "react";
 import { ButtonContainer } from "../Button/styles";
 
+import { useDispatch } from 'react-redux'
+import { open, add } from '../../store/reducers/cart'
+
 export type Menu = {
   cardapio: Menu[];
   tipo: string;
@@ -30,6 +33,16 @@ export type Props = {
 
 const DishesList = ({ cardapio }: Props) => {
   const [itemIsOpen, setItemIsOpen] = useState<Menu | null>(null);
+
+    const dispatch = useDispatch()
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
+  const addToCart = (item: Menu) => {
+    dispatch(add(item))
+  }
 
   return (
     <div className="container">
@@ -67,7 +80,14 @@ const DishesList = ({ cardapio }: Props) => {
                 <br />
                 <br />
                 <p>Serve: de {itemIsOpen.porcao}</p>
-                <ButtonContainer title="Clique aqui">
+                <ButtonContainer 
+                                  onClick={() => {
+                    if (itemIsOpen) {
+                      dispatch(add(itemIsOpen))
+                      dispatch(open())
+                    }
+                  }}
+                title="Clique aqui">
                   Adicionar ao carrinho R$ {itemIsOpen.preco.toFixed(2)}
                 </ButtonContainer>
               </div>
